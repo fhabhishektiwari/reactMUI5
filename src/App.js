@@ -1,34 +1,26 @@
 import './App.css';
 import { Button, Typography } from '@mui/material';
-import {ThemeProvider,createTheme} from '@mui/material';
-
-const theme=createTheme({
-  palette:{
-    primary:{
-      main:'#f00',
-    },
-    secondary:{
-      main:'#efd',
-    }
-  },
-  typography:{
-    myvariant:{
-      fontSize:21,
-      color:'#f0d',
-    }
-  }
-
-})
+import {styled} from '@mui/material/styles';
 
 function App() {
+
+  const MyCustomButton=styled(Button)(({theme})=>({
+    // padding:30,
+    padding:theme.spacing(5),
+    background:theme.palette.secondary.main,
+  }));
+
   return (
-    <ThemeProvider theme={theme}>
     <div className="App">
-        <Typography component="div" variant='myvariant'>React Mui5</Typography>
+      <Typography component="div" variant='mytypography'>React Mui5</Typography>
       <Button color='primary'>Button</Button>
       <Button color='secondary' variant='contained'>Button</Button>
+      <Typography sx={{ color:'mycustomeColor.main'}}>Cusom Color Apply</Typography>
+      <Typography sx={{ color: 'mycustomeColor.customdark',p:1 }}>Cusom Color Apply</Typography>
+      <Typography sx={{ color: 'mycustomeColor.customLight',m:2 }}>Cusom Color Apply</Typography>
+      <MyCustomButton variant='contained'>Custom Button</MyCustomButton>
+
     </div>
-    </ThemeProvider>
   );
 }
 
