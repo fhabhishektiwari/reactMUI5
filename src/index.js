@@ -1,44 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProviderComponent } from './hooks/themeContext';
 
-import { ThemeProvider,createTheme } from '@mui/material';
-
-const theme=createTheme({
-  palette:{
-    primary:{
-      main:'#dde',
-    },
-    secondary:{
-      main:'#cef',
-    },
-    mycustomeColor:{
-      main:'#dfd',
-      customdark:'#000',
-      customLight:'#ddd',
-    },
-  },
-  typography:{
-    mytypography:{
-      fontSize:21,
-      color:'#bad',
-    }
-  },
-  spacing:1,
-  shadows:'none',
-})
+const Root=()=> {
+  return (
+    <ThemeProviderComponent>
+      <App />
+    </ThemeProviderComponent>
+  )
+}
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <ThemeProvider theme={theme}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </ThemeProvider>
-);
+ReactDOM.createRoot(document.getElementById('root')).render(<Root/>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
