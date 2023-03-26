@@ -1,4 +1,3 @@
-import React from 'react';
 import { createTheme } from '@mui/material/styles';
 // Define common typography settings for both themes
 const commonTypography = {

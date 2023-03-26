@@ -1,9 +1,10 @@
 import './App.css';
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button,IconButton,Typography } from '@mui/material';
 import {styled} from '@mui/material/styles';
 import CustomButton from './components/Button/Button';
 import { darkTheme,lightTheme} from './theme/theme';
 import { useTheme } from './hooks/themeContext';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function App() {
   const { toggleTheme }=useTheme();
@@ -13,7 +14,7 @@ function App() {
   const MyCustomButton=styled(Button)(({theme})=>({
     // padding:30,
     padding:theme.spacing(5),
-    background:console.log('theme',theme),
+    // background:console.log('theme',theme),
     background: theme.palette.mode === 'light' ? `${lightTheme.palette.primary.main}` : `${darkTheme.palette.secondary.main}`,
     color: theme.palette.mode === 'light' ? `${lightTheme.palette.white.main}` : `${darkTheme.palette.black.main}`,
     '&:hover':{
@@ -76,7 +77,15 @@ function App() {
       <CustomButton 
         buttonText="Button"
       />
-      <Typography variant='mytypography' sx={{m:2}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, accusamus.</Typography>
+      <Typography variant='mytypography' sx={{m:2}}>Lorem ipsum dolor sit amet</Typography>
+      <DeleteIcon fontSize='large' sx={{ color: 'secondary.main' }} />
+      <DeleteIcon fontSize='medium' />
+      <DeleteIcon fontSize='small'sx={{color:'primary.main'}}/>
+      <IconButton size='large' sx={{color:'secondary.main'}}>
+        <DeleteIcon fontSize='small' sx={{ color: 'primary.main' }} />
+      </IconButton>
+
+
     </Box>
   );
 }
