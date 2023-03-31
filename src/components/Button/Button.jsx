@@ -1,18 +1,18 @@
 import React from 'react'
-import { Button as MuiButton } from '@mui/material'
-import styled from '@emotion/styled'
+import { Button} from '@mui/material'
+
 const CustomButton = (props) => {
-    const { buttonText,variant }=props
-    const MyCustomeButton=styled(MuiButton)(({theme})=>({
-        background:theme.palette.mode==='light' ? 'red':'blue',
-        color: theme.palette.mode === 'light'?'#000':'#FFF',
-        '&:hover':{
-            backgroundColor: theme.palette.mode === 'light'?'darkred':'darkblue',
-        },
-    }))
-  return (
-      <MyCustomeButton variant={variant || 'contained'}>{buttonText}</MyCustomeButton>
-  )
+    const {variant,size,children,...rest}=props;
+    return (
+        <Button
+            variant={variant||'contained'}
+            size={size}
+            disableRipple
+            {...rest}
+        > 
+            {children}
+        </Button>
+    )
 }
 
 export default CustomButton

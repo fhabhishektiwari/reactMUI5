@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {darkTheme,lightTheme} from '../theme/theme';
+import {darkTheme,lightTheme} from '../themes/theme';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 
@@ -8,6 +8,8 @@ export const ThemeContext = createContext();
 export const ThemeProviderComponent = ({ children }) => {
     const [theme, setTheme] = useState('light');
 
+    console.log({theme})
+
     useEffect(()=>{
         const storedTheme=localStorage.getItem('theme');
         if(storedTheme){
@@ -15,7 +17,7 @@ export const ThemeProviderComponent = ({ children }) => {
         }
     },[]);
 
-    const toggleTheme = () => {
+    const handleToggle = () => {
         if (theme === 'light') {
             setTheme('dark');
             localStorage.setItem('theme', 'dark');
@@ -26,7 +28,7 @@ export const ThemeProviderComponent = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{theme,toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, handleToggle }}>
             <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
                 <CssBaseline/>
                 {children}
