@@ -126,7 +126,7 @@ const lightTheme = createTheme({
     },
     typography: commonTypography,
     // spacing:4,
-    shadows: 'none',
+    shadows: Array(25).fill('none'),
     components: {
         MuiButtonBase: {
             defaultProps: {
@@ -220,7 +220,7 @@ const lightTheme = createTheme({
         MuiPaper:{
             styleOverrides:{
                 root:{
-                    border:'2px solid red',
+                    // border:'2px solid red',
                 }
             }
         },
@@ -235,6 +235,32 @@ const lightTheme = createTheme({
                 },
             },
         },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#ADB3EB',
+                    color: '#333333',
+                    borderRadius: '4px',
+                    padding: '4px',
+                    margin: '8px 8px 0px 0',
+                },
+                // deleteIcon: {
+                //     color: '#333333',
+                //     fontSize: '10px',
+                //     fontWeight: '500'
+
+                // }
+            }
+        },//end MuiChip
+        MuiAccordion:{
+            styleOverrides:{
+                root:{
+                    // color:'red',
+                    paddingBottom:'150px'
+                },
+                gutters:1,
+            }
+        }
     }
 });
 
@@ -332,6 +358,7 @@ const darkTheme = createTheme({
         }
     },
     typography: commonTypography,
+    shadows: Array(25).fill('none'),
     // spacing: 4,
     components: {
         MuiButtonBase: {
@@ -392,6 +419,23 @@ const darkTheme = createTheme({
                 },
             }
         },//end MuiTextField
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#ADB3EB',
+                    color: '#333333',
+                    borderRadius: '4px',
+                    padding: '4px',
+                    margin: '8px 8px 8px 0',
+                },
+                deleteIcon: {
+                    color: '#333333',
+                    fontSize: '10px',
+                    fontWeight: '500'
+
+                }
+            }
+        },//end MuiChip
     }
 });
 

@@ -1,20 +1,21 @@
 import * as React from 'react';
-import dayjs from 'dayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker as MuiDatePicker} from '@mui/x-date-pickers/DatePicker';
 
-export default function ActionBarComponentProps() {
+export default function DatePicker({ label, openTo, views }) {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <StaticDatePicker
-                defaultValue={dayjs('2022-04-17')}
+            <MuiDatePicker
+                label={label}
+                openTo={openTo}
                 slotProps={{
-                    actionBar: {
-                        actions: ['cancel','accept'],
-                    },
+                    actionBar:{
+                        actions:['cancel','accept']
+                    }
                 }}
-            />
+                views={views}
+             />
         </LocalizationProvider>
     );
 }

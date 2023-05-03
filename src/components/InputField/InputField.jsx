@@ -1,13 +1,20 @@
-import { TextField } from '@mui/material'
+import { FormControl, InputLabel, TextField } from '@mui/material'
 import React from 'react'
 
-const InputField = ({label,...props}) => {
-  return (<TextField
-      label={label}
-      variant="outlined"
-      fullWidth
-      {...props}
-  />
+const InputField = ({ label, size, ...props }) => {
+  return (
+    <>
+      <InputLabel>{label}</InputLabel>
+      <FormControl fullWidth>
+        <TextField
+          size={size}
+          // label={label}
+          variant="outlined"
+          fullWidth
+          {...props}
+        />
+      </FormControl>
+    </>
   )
 }
 
